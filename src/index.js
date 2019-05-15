@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // create new list items
     const taskItem = document.createElement('li')
-    taskItem.className = "list-group-item"
+    taskItem.className = "list-group-item w-100 d-flex align-items-center"
     taskItem.innerText = taskValue
 
 
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // DELETE
     const newButton = document.createElement("button")
-    newButton.className = "float-right btn btn-sm btn-outline-success"
+    newButton.className = "ml-auto btn btn-sm btn-outline-success"
     newButton.innerText = "Done"
     // console.log("delete button: ", newButton)
 
