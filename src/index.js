@@ -1,55 +1,72 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("#create-task-form")
-  // console.log("form: ", form)
-
-  const input = form.querySelector('#new-task-description')
-  // console.log("form input: ", input)
+  const input = document.querySelector('#new-task-description')
 
   form.addEventListener('submit', function(e){
     // prevents submission
     e.preventDefault()
-    // console.log('submit is being clicked')
 
     // TASK LIST
-    // show tasks
-    const taskShow = document.querySelector("#tasks")
-    // console.log('task: ', taskShow)
+    const taskList = document.querySelector("#tasks")
+    const taskValue = input.value
 
     // create new list items
-    const newLi = document.createElement('li')
-    // console.log('new li: ', newLi)
+    const taskItem = document.createElement('li')
+    taskItem.className = "list-group-item"
+    taskItem.innerText = taskValue
 
-    // add list item values
-    const newTask = input.value
-    // console.log('current input value: ', newTask)
 
-    taskShow.append(newLi)
 
-    // setting a key id for each task item
-    // let i = Math.ceil(Math.random()*1000, 6)
-    // newLi.id = newTask.slice(0,6) + '-' + i
-
-    newLi.innerText = newTask
-
-    console.log('task item: ', newLi)
+    taskList.append(taskItem)
 
   // BONUS
   // - A delete function that will remove tasks from your list
-    const newButton = document.createElement("button")
-    newButton.id = "delete"
-    newButton.innerText = "x"
-    console.log("delete button: ", newButton)
-    newLi.appendChild(newButton)
 
+    // DELETE
+    const newButton = document.createElement("button")
+    newButton.className = "float-right btn btn-sm btn-outline-success"
+    newButton.innerText = "Done"
+    // console.log("delete button: ", newButton)
+
+    // Appending delete to the new task created
+    taskItem.appendChild(newButton)
+
+    // delete button event listener
     newButton.addEventListener("click", function(){
-      newLi.remove()
-      console.log("Deleting: ", newLi.innerText)
+      taskItem.remove()
+      console.log("Deleting: ", taskItem.innerText)
     })
+
   // - A priority value selected from a dropdown that is used to determine the color of the text in the list (e.g. red for high priority, yellow for medium, green for low)
+
+    // PRIORITY
+    const priority = document.querySelector('#priority')
+
+    // priority.options is an array of the selected options
+    const dropdownValue = priority.options[priority.selectedIndex].value
+
+    switch(dropdownValue){
+      case "high":
+        taskItem.style.backgroundColor = "red"
+        break;
+      case "medium":
+        taskItem.style.backgroundColor = "yellow"
+        break;
+      case "low":
+        taskItem.style.backgroundColor = "green"
+        break;
+    }
+
   //   - As a challenge, implement a sorting functionality that displays the tasks ASC/DESC based on priority
+
+
   // - An additional input field (e.g. user, duration, date due)
+
+
   // - Ability to edit tasks
+
+
   // - Something of your choice! The main objective is to add a feature that allows the user's input to affect the DOM
 
     // resets form
