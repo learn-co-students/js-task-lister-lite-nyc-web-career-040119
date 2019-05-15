@@ -7,7 +7,7 @@ html {
 body {
   min-height: 100%;
   min-width: 100%;
-  background: linear-gradient(pink, violet);
+  background: linear-gradient(#36bd36, #32cd32);
 }
 
 button {
@@ -34,4 +34,64 @@ button {
   padding: 15px 20px 18px 18px;
   border-radius: 5px;
   box-shadow: 2px 5px 5px #333;
+}
+
+
+/* priority coloring and animation*/
+
+.low {
+  background-color: lightblue;
+  border-style: solid;
+  border-color: black;
+  border-width: thin;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+  box-shadow: 2px 2px #888888;
+}
+
+.medium {
+  background-color: orange;
+  border-style: solid;
+  border-color: black;
+  border-width: thin;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+  box-shadow: 2px 2px #888888;
+}
+
+.high {
+  background-color: red;
+  border-style: solid;
+  border-color: black;
+  border-width: thin;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+  box-shadow: 2px 2px #888888;
+}
+
+@keyframes now {
+  from {background-color: white;}
+  to {background-color: red;}
+}
+.do-it-now {
+  border-style: solid;
+  border-color: black;
+  border-width: thin;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+  box-shadow: 2px 2px #888888;
+  background-color: red;
+  -webkit-animation-name: now; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 0.02s; /* Safari 4.0 - 8.0 */
+  animation-name: now;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+}
+
+.button {
+  margin: 5px;
 }
