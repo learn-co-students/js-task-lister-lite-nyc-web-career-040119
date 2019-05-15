@@ -16,9 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     taskItem.className = "list-group-item w-100 d-flex align-items-center"
     taskItem.innerText = taskValue
 
-
-
-    taskList.append(taskItem)
+    taskList.prepend(taskItem)
 
   // BONUS
   // - A delete function that will remove tasks from your list
